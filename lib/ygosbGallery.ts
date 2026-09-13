@@ -40,11 +40,10 @@ export const ygosbGallery: GalleryItem[] = [
   },
   {
     src: `${base}/requirements-library.webp`,
-    title: "Requirements library",
+    title: "Requirements library — representative section",
     caption:
-      "A large configurable curriculum structure is managed as explicit skills and checkpoints instead of a static spreadsheet. Permanent identifiers support reliable reconciliation with future IXL exports.",
-    alt: "Long Credit Recovery requirements library with skills and checkpoints organized by unit",
-    tall: true
+      "A cropped section of the configurable curriculum library shows how skills and checkpoints are managed as structured requirements rather than a static spreadsheet. Permanent identifiers support reliable reconciliation with future IXL exports.",
+    alt: "Cropped Credit Recovery requirements library showing skills and checkpoints organized by unit"
   },
   {
     src: `${base}/ixl-import-reconciliation.webp`,
