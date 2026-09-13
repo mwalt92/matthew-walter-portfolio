@@ -11,7 +11,7 @@ export default function ProjectCard({ project, index }: { project: Project; inde
         {isTeacherGradeAnalytics ? (
           <div className="project-visual project-visual-image">
             <Image
-              src="/projects/teacher-grade-analytics/overview-composite.webp"
+              src="/projects/teacher-grade-analytics/overview-composite.png"
               alt="Teacher Grade Analytics product overview"
               fill
               sizes="(max-width: 930px) 100vw, 40vw"
