@@ -26,13 +26,6 @@ export const teacherGradeGallery: GalleryItem[] = [
     alt: "Sanitized Teacher Grade Analytics course dashboard with demo student labels."
   },
   {
-    src: "/projects/teacher-grade-analytics/full-workspace-redacted.png",
-    title: "Workspace detail",
-    caption: "A representative crop of the course workspace keeps the layout and information density legible without forcing the viewer through an extremely tall page capture. Detailed student-level content remains intentionally blurred for privacy.",
-    alt: "Teacher Grade Analytics workspace with detailed student information blurred.",
-    cropPosition: "top center"
-  },
-  {
     src: "/projects/teacher-grade-analytics/score-matrix.png",
     title: "Gradebook / Score Matrix",
     caption: "Spreadsheet-style grade entry with missing, dropped, retake, and best-attempt context visible in the workflow. Student identities are replaced with demo labels.",
@@ -63,15 +56,15 @@ export const teacherGradeGallery: GalleryItem[] = [
     alt: "Sanitized Teacher Grade Analytics student dashboard."
   },
   {
-    src: "/projects/teacher-grade-analytics/grade-simulator.png",
-    title: "Student Grade Simulator",
-    caption: "What-if modeling uses the same configured weights, drop rules, retake logic, late policies, and grading-period composition as the real gradebook.",
-    alt: "Sanitized Teacher Grade Analytics grade simulator."
-  },
-  {
     src: "/projects/teacher-grade-analytics/study-library.png",
     title: "Student Study Library",
     caption: "Assessment-specific study guides, retake readiness, available resources, and a suggested-next workflow based on recorded attempts.",
     alt: "Sanitized Teacher Grade Analytics student study library."
+  },
+  {
+    src: "/projects/teacher-grade-analytics/grade-simulator.png",
+    title: "Student Grade Simulator",
+    caption: "What-if modeling uses the same configured weights, drop rules, retake logic, late policies, and grading-period composition as the real gradebook.",
+    alt: "Sanitized Teacher Grade Analytics grade simulator."
   }
 ];
