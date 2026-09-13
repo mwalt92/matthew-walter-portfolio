@@ -3,6 +3,7 @@ import Metric from "@/components/Metric";
 import ProjectGallery from "@/components/ProjectGallery";
 import { getProject, projects } from "@/lib/projects";
 import { teacherGradeGallery } from "@/lib/teacherGradeGallery";
+import { ygosbGallery } from "@/lib/ygosbGallery";
 
 export function generateStaticParams() {
   return projects.map((project) => ({ slug: project.slug }));
@@ -12,7 +13,18 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
   const { slug } = await params;
   const project = getProject(slug);
   if (!project) notFound();
-  const showTeacherGallery = project.slug === "teacher-grade-analytics";
+
+  const galleryItems =
+    project.slug === "teacher-grade-analytics"
+      ? teacherGradeGallery
+      : project.slug === "ygosb-course-dashboard"
+        ? ygosbGallery
+        : null;
+
+  const galleryDescription =
+    project.slug === "ygosb-course-dashboard"
+      ? "Click any image to inspect it at full size. Student-identifying information has been replaced in the public copies below. The overview illustration uses demo data; the remaining images are sanitized captures of the working product."
+      : "Click any image to inspect it at full size. Student-identifying information has been replaced, obscured, or blurred in the public copies below. The overview illustration uses demo data; the remaining images are sanitized captures of the working product.";
 
   return (
     <main className="page-main">
@@ -47,16 +59,12 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
             {project.problem.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
           </section>
 
-          {showTeacherGallery && (
+          {galleryItems && (
             <section className="case-section product-tour-section">
               <p className="eyebrow">Product tour</p>
               <h2>See the actual workflows.</h2>
-              <p>
-                Click any image to inspect it at full size. Student-identifying information has been replaced,
-                obscured, or blurred in the public copies below. The overview illustration uses demo data; the
-                remaining images are sanitized captures of the working product.
-              </p>
-              <ProjectGallery items={teacherGradeGallery} />
+              <p>{galleryDescription}</p>
+              <ProjectGallery items={galleryItems} />
             </section>
           )}
 
@@ -89,7 +97,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
             </ul>
           </section>
 
-          {!showTeacherGallery && (
+          {!galleryItems && (
             <section className="case-section screenshot-placeholder">
               <div>
                 <p className="eyebrow">Next content pass</p>
