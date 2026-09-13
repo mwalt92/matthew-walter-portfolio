@@ -2,17 +2,28 @@ import Image from "next/image";
 import Link from "next/link";
 import type { Project } from "@/lib/projects";
 
+const projectCoverImages: Record<string, { src: string; alt: string }> = {
+  "teacher-grade-analytics": {
+    src: "/projects/teacher-grade-analytics/overview-composite.png",
+    alt: "Teacher Grade Analytics product overview"
+  },
+  "ygosb-course-dashboard": {
+    src: "/projects/ygosb-course-dashboard/overview-composite.webp",
+    alt: "YGOSB Learning Dashboard product overview"
+  }
+};
+
 export default function ProjectCard({ project, index }: { project: Project; index: number }) {
-  const isTeacherGradeAnalytics = project.slug === "teacher-grade-analytics";
+  const coverImage = projectCoverImages[project.slug];
 
   return (
-    <article className={`project-card ${isTeacherGradeAnalytics ? "project-card-featured" : ""}`}>
+    <article className={`project-card ${coverImage ? "project-card-featured" : ""}`}>
       <Link className="project-visual-link" href={`/projects/${project.slug}`} aria-label={`Open ${project.name} case study`}>
-        {isTeacherGradeAnalytics ? (
+        {coverImage ? (
           <div className="project-visual project-visual-image">
             <Image
-              src="/projects/teacher-grade-analytics/overview-composite.png"
-              alt="Teacher Grade Analytics product overview"
+              src={coverImage.src}
+              alt={coverImage.alt}
               fill
               sizes="(max-width: 930px) 100vw, 40vw"
               className="project-cover-image"
