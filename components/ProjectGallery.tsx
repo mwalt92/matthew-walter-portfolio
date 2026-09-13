@@ -9,6 +9,7 @@ export type GalleryItem = {
   caption: string;
   alt: string;
   tall?: boolean;
+  cropPosition?: string;
 };
 
 export default function ProjectGallery({ items }: { items: GalleryItem[] }) {
@@ -34,10 +35,17 @@ export default function ProjectGallery({ items }: { items: GalleryItem[] }) {
     <>
       <div className="gallery-grid">
         {items.map((item, index) => (
-          <figure className={`gallery-card ${item.tall ? "gallery-card-tall" : ""}`} key={item.src}>
-            <button className="gallery-image-button" type="button" onClick={() => setActive(index)} aria-label={`Open ${item.title} full size`}>
+          <figure className={`gallery-card ${item.tall ? "gallery-card-tall" : ""} ${item.cropPosition ? "gallery-card-cropped" : ""}`} key={item.src}>
+            <button className="gallery-image-button" type="button" onClick={() => setActive(index)} aria-label={`Open ${item.title}`}>
               <span className="gallery-image-frame">
-                <Image src={item.src} alt={item.alt} fill sizes="(max-width: 760px) 100vw, 50vw" className="gallery-image" />
+                <Image
+                  src={item.src}
+                  alt={item.alt}
+                  fill
+                  sizes="(max-width: 760px) 100vw, 50vw"
+                  className="gallery-image"
+                  style={item.cropPosition ? { objectPosition: item.cropPosition } : undefined}
+                />
                 <span className="gallery-expand">Expand ↗</span>
               </span>
             </button>
@@ -56,15 +64,23 @@ export default function ProjectGallery({ items }: { items: GalleryItem[] }) {
           <button className="lightbox-close" type="button" onClick={() => setActive(null)} aria-label="Close image viewer">×</button>
           <button className="lightbox-nav lightbox-prev" type="button" onClick={() => setActive((active - 1 + items.length) % items.length)} aria-label="Previous image">‹</button>
           <figure className="lightbox-figure">
-            <div className="lightbox-image-wrap">
-              <img src={items[active].src} alt={items[active].alt} />
+            <div className={`lightbox-image-wrap ${items[active].cropPosition ? "lightbox-image-wrap-cropped" : ""}`}>
+              <img
+                src={items[active].src}
+                alt={items[active].alt}
+                style={items[active].cropPosition ? { objectPosition: items[active].cropPosition } : undefined}
+              />
             </div>
             <figcaption>
               <div>
                 <strong>{items[active].title}</strong>
                 <span>{items[active].caption}</span>
               </div>
-              <a href={items[active].src} target="_blank" rel="noreferrer">Open full size ↗</a>
+              {items[active].cropPosition ? (
+                <span className="lightbox-crop-label">Representative crop</span>
+              ) : (
+                <a href={items[active].src} target="_blank" rel="noreferrer">Open full size ↗</a>
+              )}
             </figcaption>
           </figure>
           <button className="lightbox-nav lightbox-next" type="button" onClick={() => setActive((active + 1) % items.length)} aria-label="Next image">›</button>
