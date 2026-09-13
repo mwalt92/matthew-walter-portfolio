@@ -26,10 +26,11 @@ export const teacherGradeGallery: GalleryItem[] = [
     alt: "Sanitized Teacher Grade Analytics course dashboard with demo student labels."
   },
   {
-    src: "/projects/teacher-grade-analytics/workspace-detail.webp",
+    src: "/projects/teacher-grade-analytics/full-workspace-redacted.png",
     title: "Workspace detail",
-    caption: "A tighter crop of the course workspace keeps the layout and information density legible without forcing the viewer through an extremely tall page capture. Detailed student-level content remains intentionally blurred for privacy.",
-    alt: "Cropped Teacher Grade Analytics workspace with detailed student information blurred."
+    caption: "A representative crop of the course workspace keeps the layout and information density legible without forcing the viewer through an extremely tall page capture. Detailed student-level content remains intentionally blurred for privacy.",
+    alt: "Teacher Grade Analytics workspace with detailed student information blurred.",
+    cropPosition: "top center"
   },
   {
     src: "/projects/teacher-grade-analytics/score-matrix.png",
