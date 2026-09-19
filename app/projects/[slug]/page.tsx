@@ -4,6 +4,7 @@ import ProjectGallery from "@/components/ProjectGallery";
 import { getProject, projects } from "@/lib/projects";
 import { teacherGradeGallery } from "@/lib/teacherGradeGallery";
 import { ygosbGallery } from "@/lib/ygosbGallery";
+import { petStatusGallery } from "@/lib/petStatusGallery";
 
 export function generateStaticParams() {
   return projects.map((project) => ({ slug: project.slug }));
@@ -19,12 +20,16 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
       ? teacherGradeGallery
       : project.slug === "ygosb-course-dashboard"
         ? ygosbGallery
-        : null;
+        : project.slug === "pet-status"
+          ? petStatusGallery
+          : null;
 
   const galleryDescription =
     project.slug === "ygosb-course-dashboard"
       ? "Click any image to inspect it at full size. Student-identifying information has been replaced in the public copies below. The overview illustration uses demo data; the remaining images are sanitized captures of the working product."
-      : "Click any image to inspect it at full size. Student-identifying information has been replaced, obscured, or blurred in the public copies below. The overview illustration uses demo data; the remaining images are sanitized captures of the working product.";
+      : project.slug === "pet-status"
+        ? "Click any image to inspect it at full size. The overview image is the polished public-facing product visual; the phone images are production captures from the Android app used in real household testing."
+        : "Click any image to inspect it at full size. Student-identifying information has been replaced, obscured, or blurred in the public copies below. The overview illustration uses demo data; the remaining images are sanitized captures of the working product.";
 
   return (
     <main className="page-main">
