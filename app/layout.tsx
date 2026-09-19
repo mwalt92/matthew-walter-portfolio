@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     template: "%s | Matthew Walter"
   },
   description:
-    "Product, data, learning technology, and implementation case studies from Matthew Walter."
+    "Portfolio of Matthew Walter, a product and data systems builder focused on business rules, data workflows, implementation, learning technology, and AI-assisted development."
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
