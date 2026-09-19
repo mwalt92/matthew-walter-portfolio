@@ -27,42 +27,42 @@ export const petStatusGallery: GalleryItem[] = [
   },
   {
     src: "/projects/pet-status/Screenshot_20260907-215645.png",
-    title: "History and context",
+    title: "Timers and summaries",
     caption:
-      "A production screen from the supporting workflow that turns individual care events into shared household context instead of isolated notes.",
-    alt: "Pet Status production Android screen showing shared care history and context.",
+      "The daily summary turns logged events into an at-a-glance view of each pet's recent care, while the broader product also uses timers to surface current status.",
+    alt: "Pet Status production Android daily summary showing recent care by pet.",
     phone: true
   },
   {
     src: "/projects/pet-status/Screenshot_20260907-215649.png",
-    title: "Timers and summaries",
+    title: "History and context",
     caption:
-      "A production view from the status-and-summary side of the product, where logged events become useful current-state information.",
-    alt: "Pet Status production Android screen showing pet-care timers or summary information.",
+      "Shared history preserves a chronological record of care events across connected devices so household members can see what happened and when.",
+    alt: "Pet Status production Android shared history screen.",
     phone: true
   },
   {
     src: "/projects/pet-status/Screenshot_20260907-215653.png",
-    title: "Reminders and controls",
+    title: "Settings and personalization",
     caption:
-      "A production settings view from the configurable reminder and notification system that supports reliable day-to-day use.",
-    alt: "Pet Status production Android settings screen with reminder or notification controls.",
+      "The main settings hub keeps household members, pets, event definitions, timers, reminders, notifications, connection tools, and advanced options organized away from the frequent logging flow.",
+    alt: "Pet Status production Android settings hub.",
     phone: true
   },
   {
     src: "/projects/pet-status/Screenshot_20260907-215657.png",
-    title: "Household configuration",
+    title: "Reminders and controls",
     caption:
-      "A production configuration screen showing how complexity is kept out of the primary logging flow and moved into deliberate settings.",
-    alt: "Pet Status production Android configuration screen.",
+      "Notification controls provide a dedicated place for saved alerts and the configurable reminder system used to support reliable day-to-day care.",
+    alt: "Pet Status production Android notifications screen.",
     phone: true
   },
   {
     src: "/projects/pet-status/Screenshot_20260907-215717.png",
-    title: "Settings and personalization",
+    title: "Household configuration",
     caption:
-      "Additional production controls that let the app adapt to the household's pets, routines, and notification preferences.",
-    alt: "Pet Status production Android screen showing settings and personalization.",
+      "The household summary supports a shared note and a one-tap household update so both phones can stay aligned on the day's pet-care state.",
+    alt: "Pet Status production Android household summary with shared note and update controls.",
     phone: true
   }
 ];
