@@ -10,6 +10,10 @@ const projectCoverImages: Record<string, { src: string; alt: string }> = {
   "ygosb-course-dashboard": {
     src: "/projects/ygosb-course-dashboard/overview-composite.webp",
     alt: "YGOSB Learning Dashboard product overview"
+  },
+  "pet-status": {
+    src: "/projects/pet-status/Pet-Status-Clean.png",
+    alt: "Pet Status multi-device Android app product overview"
   }
 };
 
