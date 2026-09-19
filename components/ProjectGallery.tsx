@@ -9,10 +9,13 @@ export type GalleryItem = {
   caption: string;
   alt: string;
   tall?: boolean;
+  phone?: boolean;
+  featured?: boolean;
 };
 
 export default function ProjectGallery({ items }: { items: GalleryItem[] }) {
   const [active, setActive] = useState<number | null>(null);
+  const hasPhoneItems = items.some((item) => item.phone);
 
   useEffect(() => {
     if (active === null) return;
@@ -32,16 +35,24 @@ export default function ProjectGallery({ items }: { items: GalleryItem[] }) {
 
   return (
     <>
-      <div className="gallery-grid">
+      <div className={`gallery-grid ${hasPhoneItems ? "gallery-grid-phone" : ""}`}>
         {items.map((item, index) => (
-          <figure className={`gallery-card ${item.tall ? "gallery-card-tall" : ""}`} key={item.src}>
+          <figure
+            className={[
+              "gallery-card",
+              item.tall ? "gallery-card-tall" : "",
+              item.phone ? "gallery-card-phone" : "",
+              item.featured ? "gallery-card-featured" : ""
+            ].filter(Boolean).join(" ")}
+            key={item.src}
+          >
             <button className="gallery-image-button" type="button" onClick={() => setActive(index)} aria-label={`Open ${item.title}`}>
               <span className="gallery-image-frame">
                 <Image
                   src={item.src}
                   alt={item.alt}
                   fill
-                  sizes="(max-width: 760px) 100vw, 50vw"
+                  sizes={item.phone ? "(max-width: 800px) 100vw, 33vw" : "(max-width: 760px) 100vw, 50vw"}
                   className="gallery-image"
                 />
                 <span className="gallery-expand">Expand ↗</span>
