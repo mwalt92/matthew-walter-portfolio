@@ -8,40 +8,40 @@ export default function Home() {
       <section className="hero">
         <div className="shell hero-grid">
           <div className="hero-copy">
-            <p className="eyebrow">Product · Data · Learning Technology · Implementation</p>
-            <h1>I turn complicated work into clear, usable systems.</h1>
+            <p className="eyebrow">Product & Data Systems Builder · Business Analysis · Implementation</p>
+            <h1>I turn complicated rules, data, and workflows into software people can actually use.</h1>
             <p className="hero-lede">
-              I’m Matthew Walter, a quantitative problem solver and product builder with 10 years in education.
-              I define requirements, translate messy business rules, build software, test edge cases, and iterate
-              with real users—using modern AI tools to move faster without outsourcing judgment.
+              I define requirements, model business rules, build and test full-stack and mobile products, and improve
+              them through real use. My 10 years in quantitative education sharpened the same skills: diagnosing
+              friction, explaining complexity, and designing systems people can navigate.
             </p>
             <div className="hero-actions">
-              <Link className="button primary" href="/projects">View projects</Link>
-              <Link className="button secondary" href="/about">How I work</Link>
+              <Link className="button primary" href="/projects">View shipped products</Link>
+              <Link className="button secondary" href="/resume">Resume + experience</Link>
             </div>
           </div>
 
           <aside className="hero-proof" aria-label="Selected proof points">
             <div className="proof-card proof-accent">
-              <span className="proof-label">Flagship workflow</span>
-              <strong>Problem → rules → product → testing → iteration</strong>
+              <span className="proof-label">How I work</span>
+              <strong>Requirements → rules → build → QA → deployment</strong>
             </div>
             <div className="proof-grid">
               <div className="proof-card">
-                <strong>10 years</strong>
-                <span>turning difficult concepts into usable experiences</span>
+                <strong>3 shipped</strong>
+                <span>full-stack web, data-workflow, and Android products</span>
               </div>
               <div className="proof-card">
                 <strong>100+ PRs</strong>
                 <span>directed on Teacher Grade Analytics</span>
               </div>
               <div className="proof-card">
-                <strong>3 products</strong>
-                <span>web, data workflow, and Android case studies</span>
+                <strong>Real users</strong>
+                <span>student rollout and multi-device household testing</span>
               </div>
               <div className="proof-card">
-                <strong>99%+</strong>
-                <span>calculus pass rate across 10 years</span>
+                <strong>1 active build</strong>
+                <span>Open House Sitter in development</span>
               </div>
             </div>
           </aside>
@@ -52,12 +52,12 @@ export default function Home() {
         <div className="shell">
           <div className="section-heading split-heading">
             <div>
-              <p className="eyebrow">Selected work</p>
-              <h2>Products built around real problems.</h2>
+              <p className="eyebrow">Shipped products</p>
+              <h2>Three products. Different users. Same systems thinking.</h2>
             </div>
             <p>
-              These are not tutorial projects. Each began with a recurring user or operational problem and
-              evolved through requirements, tradeoffs, testing, debugging, real-world use, and repeated iteration.
+              A teacher/student grade platform, a dual-mode course and data-reconciliation system, and a multi-device
+              Android app—each built around a recurring real-world problem and iterated through testing and use.
             </p>
           </div>
           <div className="projects-grid">
