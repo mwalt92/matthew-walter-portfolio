@@ -41,7 +41,7 @@ export default function Home() {
               </div>
               <div className="proof-card">
                 <strong>2 active builds</strong>
-                <span>Classroom Capture and Open House Sitter in development</span>
+                <span>Classroom Capture and House Sitter in development</span>
               </div>
             </div>
           </aside>

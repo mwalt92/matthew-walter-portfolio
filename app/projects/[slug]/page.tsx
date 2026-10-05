@@ -1,13 +1,15 @@
 import { notFound } from "next/navigation";
 import Metric from "@/components/Metric";
 import ProjectGallery from "@/components/ProjectGallery";
-import { getProject, projects } from "@/lib/projects";
+import { allProjects, getProject } from "@/lib/projects";
 import { teacherGradeGallery } from "@/lib/teacherGradeGallery";
 import { ygosbGallery } from "@/lib/ygosbGallery";
 import { petStatusGallery } from "@/lib/petStatusGallery";
+import { classroomCaptureGallery } from "@/lib/classroomCaptureGallery";
+import { openHouseSitterGallery } from "@/lib/openHouseSitterGallery";
 
 export function generateStaticParams() {
-  return projects.map((project) => ({ slug: project.slug }));
+  return allProjects.map((project) => ({ slug: project.slug }));
 }
 
 export default async function ProjectPage({ params }: { params: Promise<{ slug: string }> }) {
@@ -22,14 +24,22 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
         ? ygosbGallery
         : project.slug === "pet-status"
           ? petStatusGallery
-          : null;
+          : project.slug === "classroom-capture"
+            ? classroomCaptureGallery
+            : project.slug === "open-house-sitter"
+              ? openHouseSitterGallery
+              : null;
 
   const galleryDescription =
     project.slug === "ygosb-course-dashboard"
       ? "Click any image to inspect it at full size. Student-identifying information has been replaced in the public copies below. The overview illustration uses demo data; the remaining images are sanitized captures of the working product."
       : project.slug === "pet-status"
         ? "Click any image to inspect it at full size. The overview image is the polished public-facing product visual; the phone images are production captures from the Android app used in real household testing."
-        : "Click any image to inspect it at full size. Student-identifying information has been replaced, obscured, or blurred in the public copies below. The overview illustration uses demo data; the remaining images are sanitized captures of the working product.";
+        : project.slug === "classroom-capture"
+          ? "Click any image to inspect it at full size. The gallery combines the working V1 field-test build with earlier UX explorations that show how the interaction model evolved before and during classroom testing."
+          : project.slug === "open-house-sitter"
+            ? "Click any image to inspect it at full size. These screenshots document the current private prototype across the main owner and sitter information flows; the product is still in active development."
+            : "Click any image to inspect it at full size. Student-identifying information has been replaced, obscured, or blurred in the public copies below. The overview illustration uses demo data; the remaining images are sanitized captures of the working product.";
 
   return (
     <main className="page-main">
