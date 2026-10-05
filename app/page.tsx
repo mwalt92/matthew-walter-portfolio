@@ -40,8 +40,8 @@ export default function Home() {
                 <span>student rollout and multi-device household testing</span>
               </div>
               <div className="proof-card">
-                <strong>1 active build</strong>
-                <span>Open House Sitter in development</span>
+                <strong>2 active builds</strong>
+                <span>Classroom Capture and Open House Sitter in development</span>
               </div>
             </div>
           </aside>

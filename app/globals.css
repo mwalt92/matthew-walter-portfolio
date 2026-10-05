@@ -194,3 +194,110 @@ h3 { font-size: 1.3rem; }
   .evidence-panel, .screenshot-placeholder { padding:28px; }
   .footer-inner { flex-direction:column; align-items:flex-start; }
 }
+
+
+.development-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+.development-card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  overflow: hidden;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+.development-visual,
+.development-placeholder {
+  position: relative;
+  min-height: 280px;
+  overflow: hidden;
+  border-bottom: 1px solid var(--line);
+  background: var(--surface-2);
+}
+.development-image {
+  object-fit: contain;
+  padding: 16px;
+}
+.development-placeholder {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 8px;
+  padding: 30px;
+  color: white;
+  background:
+    radial-gradient(circle at 78% 15%, rgba(255,255,255,.22), transparent 25%),
+    linear-gradient(135deg, #244c78, #0b8f7a);
+}
+.development-placeholder span {
+  font-size: .72rem;
+  font-weight: 800;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  opacity: .78;
+}
+.development-placeholder strong {
+  max-width: 360px;
+  font-size: 1.85rem;
+  line-height: 1.05;
+  letter-spacing: -.035em;
+}
+.development-card-body {
+  display: grid;
+  gap: 26px;
+  padding: 30px;
+}
+.development-card-body h3 {
+  margin-bottom: 14px;
+  font-size: 1.75rem;
+}
+.development-card-body p:not(.eyebrow) {
+  margin-bottom: 0;
+  color: var(--muted);
+}
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  margin-bottom: 18px;
+  padding: 6px 10px;
+  border: 1px solid color-mix(in srgb, var(--accent-2) 35%, var(--line));
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--accent-2) 10%, var(--surface));
+  color: var(--accent-2);
+  font-size: .72rem;
+  font-weight: 800;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+.development-details {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 10px 16px;
+  padding-top: 22px;
+  border-top: 1px solid var(--line);
+}
+.development-details strong {
+  font-size: .82rem;
+}
+.development-details span {
+  color: var(--muted);
+  font-size: .9rem;
+  line-height: 1.5;
+}
+
+@media (max-width: 930px) {
+  .development-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 650px) {
+  .development-visual,
+  .development-placeholder { min-height: 220px; }
+  .development-card-body { padding: 24px; }
+  .development-details { grid-template-columns: 1fr; gap: 5px; }
+  .development-details strong:not(:first-child) { margin-top: 10px; }
+}
