@@ -52,8 +52,8 @@ export default function ProjectsPage() {
             <article className="development-card development-card-visual">
               <div className="development-visual">
                 <Image
-                  src="/projects/classroom-capture/Classroom%20Capture%20UX%20Modes%200.2.png"
-                  alt="Classroom Capture tablet interface showing teacher-focused classroom workflow modes"
+                  src="/projects/classroom-capture/V1.jpg"
+                  alt="Working V1 of Classroom Capture running as a tablet-first classroom participation and formative-assessment interface"
                   fill
                   sizes="(max-width: 930px) 100vw, 50vw"
                   className="development-image"
@@ -61,18 +61,18 @@ export default function ProjectsPage() {
               </div>
               <div className="development-card-body">
                 <div>
-                  <span className="status-pill">Field testing</span>
+                  <span className="status-pill">Working V1</span>
                   <p className="eyebrow">Tablet-first classroom workflow</p>
                   <h3>Classroom Capture / Formative Assessment</h3>
                   <p>
-                    A tablet-first participation and formative-assessment layer designed around the pace of a live classroom. The product is being field-tested on Android with S Pen input and is intended to connect with Teacher Grade Analytics.
+                    A working tablet-first participation and formative-assessment layer designed around the pace of a live classroom. V1 establishes the core interaction model and teacher workflow before broader functionality is added, with the product intended to connect with Teacher Grade Analytics.
                   </p>
                 </div>
                 <div className="development-details">
                   <strong>Product work</strong>
-                  <span>Workflow discovery, fast attendance and participation capture, opportunity/point tracking, undo behavior, PWA ergonomics, and tablet-focused interaction design.</span>
+                  <span>Workflow discovery, fast attendance and participation capture, opportunity/point tracking, undo behavior, PWA ergonomics, Android/S Pen use, and tablet-focused interaction design.</span>
                   <strong>Current stage</strong>
-                  <span>Active classroom field testing. Feedback from real use is driving density, navigation, interaction, and future seating-chart decisions before broader release.</span>
+                  <span>The first working version is being used to validate the app itself and settle the interface through real classroom use. Those findings are shaping density, navigation, controls, and the product roadmap before functionality expands.</span>
                 </div>
               </div>
             </article>
