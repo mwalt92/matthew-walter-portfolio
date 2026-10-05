@@ -14,10 +14,26 @@ const projectCoverImages: Record<string, { src: string; alt: string }> = {
   "pet-status": {
     src: "/projects/pet-status/Pet-Status-Clean.png",
     alt: "Pet Status multi-device Android app product overview"
+  },
+  "classroom-capture": {
+    src: "/projects/classroom-capture/V1.jpg",
+    alt: "Working V1 of Classroom Capture on a tablet-first classroom workflow"
+  },
+  "open-house-sitter": {
+    src: "/projects/open-house-sitter/Front%20Page.png",
+    alt: "House Sitter app front page showing the developing sitter coordination experience"
   }
 };
 
-export default function ProjectCard({ project, index }: { project: Project; index: number }) {
+export default function ProjectCard({
+  project,
+  index,
+  status
+}: {
+  project: Project;
+  index: number;
+  status?: string;
+}) {
   const coverImage = projectCoverImages[project.slug];
 
   return (
@@ -42,6 +58,7 @@ export default function ProjectCard({ project, index }: { project: Project; inde
         )}
       </Link>
       <div className="project-card-body">
+        {status && <span className="status-pill project-card-status">{status}</span>}
         <p className="eyebrow">{project.eyebrow}</p>
         <h3>{project.name}</h3>
         <p className="project-tagline">{project.tagline}</p>
@@ -49,7 +66,7 @@ export default function ProjectCard({ project, index }: { project: Project; inde
           {project.stack.slice(0, 5).map((item) => <span key={item}>{item}</span>)}
         </div>
         <Link className="text-link" href={`/projects/${project.slug}`}>
-          Read the case study <span aria-hidden="true">→</span>
+          {status ? "View the in-development case study" : "Read the case study"} <span aria-hidden="true">→</span>
         </Link>
       </div>
     </article>
