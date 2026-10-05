@@ -205,6 +205,125 @@ export const projects: Project[] = [
   }
 ];
 
+export const developmentProjects: Project[] = [
+  {
+    slug: "classroom-capture",
+    name: "Classroom Capture / Formative Assessment",
+    eyebrow: "In development · tablet-first classroom workflow",
+    tagline: "A field-tested classroom capture layer designed around fast, repeated teacher interactions.",
+    summary:
+      "A working tablet-first participation and formative-assessment product being refined through live classroom use before broader functionality is added. The current V1 focuses on interaction speed, density, PWA ergonomics, Android/S Pen use, and the workflow decisions that will eventually connect Classroom Capture with Teacher Grade Analytics.",
+    stack: ["Next.js", "React", "TypeScript", "PWA", "Android tablet", "S Pen", "Vercel"],
+    privateCodebase: true,
+    metrics: [
+      { value: "Working V1", label: "live field-test build" },
+      { value: "Tablet-first", label: "Android + S Pen workflow" },
+      { value: "Iterative", label: "UI shaped by classroom use" }
+    ],
+    problem: [
+      "Teachers need to capture attendance, participation, formative evidence, and quick point decisions while continuing to teach—not after class in a separate administrative workflow.",
+      "The interaction model has to be fast enough for repeated use, forgiving enough to undo accidental taps, and dense enough to keep a classroom roster visible on a tablet.",
+      "Before adding broader functionality, the core application shell and interaction patterns need to survive real classroom use."
+    ],
+    ownership: [
+      "Product discovery and workflow framing",
+      "Teacher interaction and tablet UX design",
+      "Requirements and prioritization",
+      "PWA and device-use decisions",
+      "Field testing and feedback synthesis",
+      "Release sequencing and roadmap decisions"
+    ],
+    decisions: [
+      {
+        title: "Validate the interaction model before expanding scope",
+        body: "V1 deliberately focuses on the core capture workflow so real classroom use can expose density, navigation, control, and speed problems before more functionality increases complexity."
+      },
+      {
+        title: "Design for the tablet in the teacher's hand",
+        body: "Touch targets, compact rows, fullscreen PWA behavior, stylus use, undo, and quick status changes are treated as product requirements rather than responsive-design afterthoughts."
+      },
+      {
+        title: "Make correction as fast as capture",
+        body: "Attendance and participation actions need to be reversible because classroom input is rapid and mistakes are inevitable. Undo and state changes are part of the primary workflow."
+      },
+      {
+        title: "Keep the product connected to the larger system",
+        body: "Classroom Capture is being designed as a focused collection layer that can eventually feed Teacher Grade Analytics instead of becoming another isolated gradebook."
+      }
+    ],
+    evidence: [
+      "A working PWA is being tested on an Android tablet with S Pen in a real classroom setting.",
+      "Field testing has already driven changes to navigation visibility, row density, footer/header size, color semantics, attendance correction, point-level controls, and undo behavior.",
+      "The current design work includes future seating-chart workflows, reusable layouts, rotation, section reuse, and quick student swapping, but those features remain intentionally outside V1.",
+      "Production Teacher Grade Analytics remains separate while Classroom Capture is tested as a controlled beta/field-test product."
+    ],
+    lessons: [
+      "High-frequency workflows need to be tested where the work actually happens.",
+      "Input speed and correction speed are equally important in live operational software.",
+      "Sequencing matters: stabilizing the interaction model first reduces rework when larger features arrive."
+    ]
+  },
+  {
+    slug: "open-house-sitter",
+    name: "Open House Sitter",
+    eyebrow: "In development · household coordination web app",
+    tagline: "A working prototype that turns scattered sitter instructions into one structured household workflow.",
+    summary:
+      "A separate web product for organizing the information and workflows a house sitter needs while an owner is away. The current private prototype combines owner setup, pet care, house care, emergency references, trip information, and sitter-facing coordination while access, notifications, scheduling, and future Pet Status integration continue to evolve.",
+    stack: ["Next.js", "React", "TypeScript", "Web app", "Vercel"],
+    privateCodebase: true,
+    metrics: [
+      { value: "Prototype", label: "working private product" },
+      { value: "5", label: "core workflow screens documented" },
+      { value: "Separate", label: "designed independently from Pet Status" }
+    ],
+    problem: [
+      "House-sitting instructions often live across texts, notes, memory, and one-off explanations, making it easy for important details to be missed.",
+      "A sitter needs a simple operational view of the home: what to do, where to find information, what matters for each pet, and what to do if something goes wrong.",
+      "The owner needs a reusable setup model so each trip does not require rebuilding the same instructions from scratch."
+    ],
+    ownership: [
+      "Product concept and workflow definition",
+      "Owner and sitter information architecture",
+      "Requirements and feature sequencing",
+      "Pet, house, and emergency-information structure",
+      "Prototype validation and iteration",
+      "Integration boundary decisions with Pet Status"
+    ],
+    decisions: [
+      {
+        title: "Keep it separate from Pet Status first",
+        body: "Open House Sitter is being designed to stand on its own so house-sitting workflows can be validated independently before any cross-product integration is attempted."
+      },
+      {
+        title: "Organize around sitter decisions",
+        body: "Pet details, house information, emergency references, and trip instructions are structured around what a sitter needs to know and do rather than around how the owner originally stored the information."
+      },
+      {
+        title: "Make owner setup reusable",
+        body: "The product direction favors persistent household information and reusable routines so future trips can be configured rather than recreated."
+      },
+      {
+        title: "Separate core information from future coordination features",
+        body: "The prototype establishes the main information flows first while permissions, notifications, richer scheduling, and completion tracking continue to evolve."
+      }
+    ],
+    evidence: [
+      "The current prototype includes a front page plus dedicated owner setup, pet information, house information, and emergency information workflows.",
+      "The product already separates household reference information from trip-specific coordination, creating a base for reusable future trips.",
+      "The public portfolio screenshots document the working prototype while keeping the product clearly labeled as in development.",
+      "Future Pet Status integration is treated as an architectural option, not a dependency for the product to be useful."
+    ],
+    lessons: [
+      "Good operational software reduces the number of places a user has to remember to check.",
+      "Information architecture matters as much as feature count when the product's job is coordination.",
+      "Keeping related products separate early can make later integration decisions clearer."
+    ]
+  }
+];
+
+export const allProjects = [...projects, ...developmentProjects];
+
 export function getProject(slug: string) {
-  return projects.find((project) => project.slug === slug);
+  return allProjects.find((project) => project.slug === slug);
 }
