@@ -265,7 +265,7 @@ export const developmentProjects: Project[] = [
   },
   {
     slug: "open-house-sitter",
-    name: "Open House Sitter",
+    name: "House Sitter",
     eyebrow: "In development · household coordination web app",
     tagline: "A working prototype that turns scattered sitter instructions into one structured household workflow.",
     summary:
@@ -293,7 +293,7 @@ export const developmentProjects: Project[] = [
     decisions: [
       {
         title: "Keep it separate from Pet Status first",
-        body: "Open House Sitter is being designed to stand on its own so house-sitting workflows can be validated independently before any cross-product integration is attempted."
+        body: "House Sitter is being designed to stand on its own so house-sitting workflows can be validated independently before any cross-product integration is attempted."
       },
       {
         title: "Organize around sitter decisions",
