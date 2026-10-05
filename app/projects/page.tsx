@@ -1,7 +1,5 @@
-import Image from "next/image";
-import Link from "next/link";
 import ProjectCard from "@/components/ProjectCard";
-import { projects } from "@/lib/projects";
+import { developmentProjects, projects } from "@/lib/projects";
 
 export const metadata = { title: "Projects" };
 
@@ -50,55 +48,14 @@ export default function ProjectsPage() {
           </div>
 
           <div className="development-grid">
-            <article className="development-card development-card-visual">
-              <Link className="development-visual" href="/projects/classroom-capture" aria-label="Open Classroom Capture case study">
-                <Image
-                  src="/projects/classroom-capture/V1.jpg"
-                  alt="Working V1 of Classroom Capture running as a tablet-first classroom participation and formative-assessment interface"
-                  fill
-                  sizes="(max-width: 930px) 100vw, 50vw"
-                  className="development-image"
-                />
-              </Link>
-              <div className="development-card-body">
-                <div>
-                  <span className="status-pill">Working V1</span>
-                  <p className="eyebrow">Tablet-first classroom workflow</p>
-                  <h3>Classroom Capture / Formative Assessment</h3>
-                  <p>
-                    A field-tested classroom capture layer focused first on fast teacher interactions, tablet UX, and workflow validation before broader functionality expands.
-                  </p>
-                </div>
-                <Link className="text-link" href="/projects/classroom-capture">
-                  View the in-development case study <span aria-hidden="true">→</span>
-                </Link>
-              </div>
-            </article>
-
-            <article className="development-card development-card-visual">
-              <Link className="development-visual" href="/projects/open-house-sitter" aria-label="Open Open House Sitter case study">
-                <Image
-                  src="/projects/open-house-sitter/Front%20Page.png"
-                  alt="Open House Sitter front page showing the developing household and sitter coordination experience"
-                  fill
-                  sizes="(max-width: 930px) 100vw, 50vw"
-                  className="development-image"
-                />
-              </Link>
-              <div className="development-card-body">
-                <div>
-                  <span className="status-pill">Working prototype</span>
-                  <p className="eyebrow">Household coordination web app</p>
-                  <h3>Open House Sitter</h3>
-                  <p>
-                    A private web prototype that organizes pet care, house care, emergency information, and sitter-facing household instructions into one structured workflow.
-                  </p>
-                </div>
-                <Link className="text-link" href="/projects/open-house-sitter">
-                  View the in-development case study <span aria-hidden="true">→</span>
-                </Link>
-              </div>
-            </article>
+            {developmentProjects.map((project, index) => (
+              <ProjectCard
+                key={project.slug}
+                project={project}
+                index={index}
+                status={project.slug === "classroom-capture" ? "Working V1" : "Working prototype"}
+              />
+            ))}
           </div>
         </div>
       </section>
