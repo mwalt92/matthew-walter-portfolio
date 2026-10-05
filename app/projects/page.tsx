@@ -77,25 +77,30 @@ export default function ProjectsPage() {
               </div>
             </article>
 
-            <article className="development-card">
-              <div className="development-placeholder" aria-hidden="true">
-                <span>Open House Sitter</span>
-                <strong>Household coordination in progress</strong>
+            <article className="development-card development-card-visual">
+              <div className="development-visual">
+                <Image
+                  src="/projects/open-house-sitter/Front%20Page.png"
+                  alt="Open House Sitter front page showing the developing household and sitter coordination experience"
+                  fill
+                  sizes="(max-width: 930px) 100vw, 50vw"
+                  className="development-image"
+                />
               </div>
               <div className="development-card-body">
                 <div>
-                  <span className="status-pill">Active development</span>
+                  <span className="status-pill">Working prototype</span>
                   <p className="eyebrow">Household coordination web app</p>
                   <h3>Open House Sitter</h3>
                   <p>
-                    A separate web product for planning sitter visits, storing pet and house-care information, generating day-by-day checklists, and tracking completion while an owner is away. It may eventually integrate with Pet Status, but it is being designed to stand on its own first.
+                    A separate web product for organizing the information and workflows a house sitter needs while an owner is away. The working prototype brings pet care, house care, emergency information, trip setup, and day-by-day coordination into one place while remaining distinct from Pet Status.
                   </p>
                 </div>
                 <div className="development-details">
-                  <strong>Current focus</strong>
-                  <span>Owner trip setup, reusable routines, daily task generation, pet and house information, sitter navigation, completion tracking, and persistent trip state.</span>
-                  <strong>Why it belongs here</strong>
-                  <span>The product has a working private prototype, but access, sitter permissions, notifications, richer scheduling, and integration decisions are still evolving.</span>
+                  <strong>Product work</strong>
+                  <span>Owner setup, pet and house information architecture, emergency-reference design, reusable care instructions, sitter navigation, daily task generation, completion tracking, and persistent trip state.</span>
+                  <strong>Current stage</strong>
+                  <span>A working private prototype now spans the core owner and sitter information flows. Access, sitter permissions, notifications, richer scheduling, and eventual Pet Status integration are still being worked through before release.</span>
                 </div>
               </div>
             </article>
