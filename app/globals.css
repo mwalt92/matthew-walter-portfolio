@@ -202,8 +202,8 @@ h3 { font-size: 1.3rem; }
   gap: 24px;
 }
 .development-card {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-rows: 280px auto;
   min-width: 0;
   overflow: hidden;
   background: var(--surface);
@@ -214,7 +214,9 @@ h3 { font-size: 1.3rem; }
 .development-visual,
 .development-placeholder {
   position: relative;
-  min-height: 280px;
+  width: 100%;
+  height: 280px;
+  min-height: 0;
   overflow: hidden;
   border-bottom: 1px solid var(--line);
   background: var(--surface-2);
@@ -276,8 +278,8 @@ h3 { font-size: 1.3rem; }
 }
 .development-details {
   display: grid;
-  grid-template-columns: max-content 1fr;
-  gap: 10px 16px;
+  grid-template-columns: 1fr;
+  gap: 6px;
   padding-top: 22px;
   border-top: 1px solid var(--line);
 }
@@ -289,14 +291,18 @@ h3 { font-size: 1.3rem; }
   font-size: .9rem;
   line-height: 1.5;
 }
+.development-details strong:not(:first-child) {
+  margin-top: 12px;
+}
 
 @media (max-width: 930px) {
   .development-grid { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 650px) {
+  .development-card { grid-template-rows: 220px auto; }
   .development-visual,
-  .development-placeholder { min-height: 220px; }
+  .development-placeholder { height: 220px; }
   .development-card-body { padding: 24px; }
   .development-details { grid-template-columns: 1fr; gap: 5px; }
   .development-details strong:not(:first-child) { margin-top: 10px; }
