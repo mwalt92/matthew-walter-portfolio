@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export type GalleryItem = {
   src: string;
@@ -15,12 +15,17 @@ export type GalleryItem = {
 
 export default function ProjectGallery({ items }: { items: GalleryItem[] }) {
   const [active, setActive] = useState<number | null>(null);
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
+  const triggerRefs = useRef<Array<HTMLButtonElement | null>>([]);
+  const lastActiveRef = useRef<number | null>(null);
   const hasPhoneItems = items.some((item) => item.phone);
 
   useEffect(() => {
     if (active === null) return;
     const previousOverflow = document.body.style.overflow;
+    lastActiveRef.current = active;
     document.body.style.overflow = "hidden";
+    closeButtonRef.current?.focus();
     const onKey = (event: KeyboardEvent) => {
       if (event.key === "Escape") setActive(null);
       if (event.key === "ArrowRight") setActive((value) => value === null ? 0 : (value + 1) % items.length);
@@ -30,6 +35,8 @@ export default function ProjectGallery({ items }: { items: GalleryItem[] }) {
     return () => {
       window.removeEventListener("keydown", onKey);
       document.body.style.overflow = previousOverflow;
+      const previousTrigger = lastActiveRef.current;
+      if (previousTrigger !== null) triggerRefs.current[previousTrigger]?.focus();
     };
   }, [active, items.length]);
 
@@ -46,7 +53,13 @@ export default function ProjectGallery({ items }: { items: GalleryItem[] }) {
             ].filter(Boolean).join(" ")}
             key={item.src}
           >
-            <button className="gallery-image-button" type="button" onClick={() => setActive(index)} aria-label={`Open ${item.title}`}>
+            <button
+              ref={(node) => { triggerRefs.current[index] = node; }}
+              className="gallery-image-button"
+              type="button"
+              onClick={() => setActive(index)}
+              aria-label={`Open ${item.title}`}
+            >
               <span className="gallery-image-frame">
                 <Image
                   src={item.src}
@@ -70,7 +83,7 @@ export default function ProjectGallery({ items }: { items: GalleryItem[] }) {
         <div className="lightbox" role="dialog" aria-modal="true" aria-label={`${items[active].title} image viewer`} onMouseDown={(event) => {
           if (event.currentTarget === event.target) setActive(null);
         }}>
-          <button className="lightbox-close" type="button" onClick={() => setActive(null)} aria-label="Close image viewer">×</button>
+          <button ref={closeButtonRef} className="lightbox-close" type="button" onClick={() => setActive(null)} aria-label="Close image viewer">×</button>
           <button className="lightbox-nav lightbox-prev" type="button" onClick={() => setActive((active - 1 + items.length) % items.length)} aria-label="Previous image">‹</button>
           <figure className="lightbox-figure">
             <div className="lightbox-image-wrap">

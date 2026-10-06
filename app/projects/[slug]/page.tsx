@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Metric from "@/components/Metric";
 import ProjectGallery from "@/components/ProjectGallery";
@@ -10,6 +11,24 @@ import { openHouseSitterGallery } from "@/lib/openHouseSitterGallery";
 
 export function generateStaticParams() {
   return allProjects.map((project) => ({ slug: project.slug }));
+}
+
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
+  const project = getProject(slug);
+  if (!project) return {};
+
+  const title = project.name;
+  const description = project.tagline;
+  const url = `/projects/${project.slug}`;
+
+  return {
+    title,
+    description,
+    alternates: { canonical: url },
+    openGraph: { title, description, url, type: "article" },
+    twitter: { card: "summary", title, description }
+  };
 }
 
 export default async function ProjectPage({ params }: { params: Promise<{ slug: string }> }) {

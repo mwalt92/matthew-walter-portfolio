@@ -10,7 +10,19 @@ export const metadata: Metadata = {
     template: "%s | Matthew Walter"
   },
   description:
-    "Portfolio of Matthew Walter, a product and data systems builder focused on business rules, data workflows, implementation, learning technology, and AI-assisted development."
+    "Portfolio of Matthew Walter, a product and data systems builder focused on business rules, data workflows, implementation, learning technology, and AI-assisted development.",
+  metadataBase: new URL("https://matthew-walter-portfolio.vercel.app"),
+  openGraph: {
+    type: "website",
+    title: "Matthew Walter | Product & Data Systems Builder",
+    description: "Product and data systems portfolio focused on business analysis, implementation, learning technology, and AI-assisted development.",
+    url: "/"
+  },
+  twitter: {
+    card: "summary",
+    title: "Matthew Walter | Product & Data Systems Builder",
+    description: "Product and data systems portfolio focused on business analysis, implementation, learning technology, and AI-assisted development."
+  }
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
