@@ -270,7 +270,7 @@ export const developmentProjects: Project[] = [
     tagline: "A working prototype that turns scattered sitter instructions into one structured household workflow.",
     summary:
       "A separate web product for organizing the information and workflows a house sitter needs while an owner is away. The current private prototype combines owner setup, pet care, house care, emergency references, trip information, and sitter-facing coordination while access, notifications, scheduling, and future Pet Status integration continue to evolve.",
-    stack: ["Next.js", "React", "TypeScript", "Web app", "Vercel"],
+    stack: ["Vinext", "React", "TypeScript", "Cloudflare Workers", "D1 / R2", "Better Auth", "Resend"],
     privateCodebase: true,
     metrics: [
       { value: "Prototype", label: "working private product" },
